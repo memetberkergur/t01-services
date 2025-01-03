@@ -1,0 +1,34 @@
+/* pvagw configuration template
+ *
+ * replace 172.20.255.255 and 5075 with the broadcast address and port used
+ * inside the container network
+ *
+ */
+{
+    "version":2,
+    "readOnly":false,
+    "clients":[
+        {
+            "name":"theclient",
+            "provider":"pva",
+            "addrlist":"172.20.255.255",
+            "autoaddrlist":false,
+            "serverport":5075,
+            "bcastport":5076
+        }
+    ],
+    "servers":[
+        {
+            "name":"theserver",
+            "clients":["theclient"],
+            /* "interface":["127.0.0.1"], */
+            /* "addrlist":"127.255.255.255", */
+            "autoaddrlist":false,
+            "serverport":5075,
+            "bcastport":5076,
+            "statusprefix":"sts:"
+            /* "access":"some.acf", */
+            /* "pvlist":"some.pvlist", */
+        }
+    ]
+}
